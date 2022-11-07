@@ -2,44 +2,35 @@ import { useState } from 'react'
 import './App.css'
 import 'rsuite/dist/rsuite.min.css'
 import { ButtonToolbar, Button, IconButton } from 'rsuite'
-import { Message } from '@rsuite/icons'
+import {  Unvisible, Visible } from '@rsuite/icons'
+import { CustomProvider } from 'rsuite'
+import { useEffect } from 'react'
 
 function App() {
-	const [count, setCount] = useState(0)
+	const [toggleMode, setToggleMode] = useState(
+		localStorage.getItem('toggle-mode') === 'true'
+	)
+	useEffect(() => {
+		localStorage.setItem('toggle-mode', toggleMode)
+	}, [toggleMode])
+
+	const toggleModeFunc = () => {
+		setToggleMode(!toggleMode)
+	}
 
 	return (
-		<div className="App">
-			<Button appearance="subtle">Hello world</Button>
-			<ButtonToolbar>
-				<Button size="lg">Large</Button>
-				<Button size="md">Medium</Button>
-				<Button size="sm">Small</Button>
-				<Button size="xs">Xsmall</Button>
-			</ButtonToolbar>
-
-			<ButtonToolbar>
-				<Button color="yellow" appearance="primary">
-					Yellow
-				</Button>
-				<Button color="blue" appearance="subtle">
-					Blue
-				</Button>
-				<Button color="green" appearance="ghost">
-					Green
-				</Button>
-			</ButtonToolbar>
-
-			<ButtonToolbar>
-				<IconButton
-					icon={<Message />}
-					color="orange"
-					appearance="primary"
-					placement="right"
-				>
-					Message
-				</IconButton>
-			</ButtonToolbar>
-		</div>
+		<CustomProvider theme={toggleMode ? 'dark' : 'light'}>
+			<div className="App">
+				<ButtonToolbar>
+					<IconButton
+						onClick={toggleModeFunc}
+						icon={toggleMode ? <Visible /> : <Unvisible />}
+						color="orange"
+						appearance="ghost"
+					/>
+				</ButtonToolbar>
+			</div>
+		</CustomProvider>
 	)
 }
 
