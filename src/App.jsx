@@ -1,34 +1,39 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import 'rsuite/dist/rsuite.min.css'
+import { ButtonToolbar, Button, IconButton } from 'rsuite'
+import { Message } from '@rsuite/icons'
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0)
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	return (
+		<div className="App">
+			<Button appearance="subtle">Hello world</Button>
+			<ButtonToolbar>
+				<Button size="lg">Large</Button>
+				<Button size="md">Medium</Button>
+				<Button size="sm">Small</Button>
+				<Button size="xs">Xsmall</Button>
+			</ButtonToolbar>
+
+			<ButtonToolbar>
+				<Button color="yellow" appearance="primary">
+					Yellow
+				</Button>
+				<Button color="blue" appearance="subtle">
+					Blue
+				</Button>
+				<Button color="green" appearance="ghost">
+					Green
+				</Button>
+			</ButtonToolbar>
+
+			<ButtonToolbar>
+				<IconButton icon={<Message />} />
+			</ButtonToolbar>
+		</div>
+	)
 }
 
 export default App
