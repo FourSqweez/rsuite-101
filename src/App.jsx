@@ -30,7 +30,14 @@ function App() {
 			</ButtonToolbar>
 
 			<ButtonToolbar>
-				<IconButton icon={<Message />} />
+				<IconButton
+					icon={<Message />}
+					color="orange"
+					appearance="primary"
+					placement="right"
+				>
+					Message
+				</IconButton>
 			</ButtonToolbar>
 		</div>
 	)
