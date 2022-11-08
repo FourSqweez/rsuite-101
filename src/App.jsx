@@ -25,7 +25,7 @@ import { Badge } from 'rsuite'
 
 import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Home } from './components/Home'
-import { Forms } from './components/Forms'
+import { FormComponent } from './components/Forms'
 
 function App() {
 	const [toggleMode, setToggleMode] = useState(
@@ -71,7 +71,7 @@ function App() {
 									as={NavLink}
 									href="/form"
 									icon={<Others />}
-									children={<Forms />}
+									children={<FormComponent />}
 								>
 									Form
 								</Nav.Item>
@@ -119,8 +119,8 @@ function App() {
 
 					<Content>
 						<Routes>
-							<Route exact path="/" element={<Home testProps='test' />}></Route>
-							<Route path="/form" element={<Forms />}></Route>
+							<Route exact path="/" element={<Home testProps="test" />}></Route>
+							<Route path="/form" element={<FormComponent />}></Route>
 						</Routes>
 					</Content>
 					<Footer>

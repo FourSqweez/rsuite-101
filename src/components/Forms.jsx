@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Forms = () => {
+export const FormComponent = () => {
 
-	return <div>Forms</div>
+	return <div>FormComponent</div>
 }
