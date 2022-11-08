@@ -15,9 +15,12 @@ import {
 	List,
 	FlexboxGrid,
 	Col,
+	AvatarGroup,
 } from 'rsuite'
 
 import { useEffect } from 'react'
+import { Avatar } from 'rsuite'
+import { Badge } from 'rsuite'
 
 function App() {
 	const [toggleMode, setToggleMode] = useState(
@@ -58,6 +61,21 @@ function App() {
 										appearance="ghost"
 									/>
 								</ButtonToolbar>
+							</Nav.Item>
+
+							<Nav.Item>
+								<Badge content={999}>
+									<Avatar
+										src="https://avatarfiles.alphacoders.com/915/91508.jpg"
+										alt="@luffy"
+										size="md"
+									/>
+								</Badge>
+							</Nav.Item>
+							<Nav.Item>
+								<Avatar circle style={{ backgroundColor: 'red', fontSize: 23 }}>
+									Ava
+								</Avatar>
 							</Nav.Item>
 						</Nav>
 					</Navbar>
